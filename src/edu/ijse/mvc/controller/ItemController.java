@@ -4,10 +4,14 @@
  */
 package edu.ijse.mvc.controller;
 
+import edu.ijse.mvc.dto.ItemDto;
+
 /**
  *
  * @author ASUS
  */
 public class ItemController {
-    
+     public String saveItem(ItemDto itemDto)throws Exception{
+         return "Success";
+     }
 }
