@@ -61,6 +61,7 @@ public class ItemView extends javax.swing.JFrame {
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextField3.setToolTipText("");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -99,7 +100,7 @@ public class ItemView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setText("QTY of Hand");
+        jLabel7.setText("QTY on Hand");
 
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 

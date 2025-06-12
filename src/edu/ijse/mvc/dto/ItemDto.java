@@ -16,7 +16,15 @@ public class ItemDto {
     private int QoH;
     
     
-    public ItemDto()  {}
+    public ItemDto()  {
+    }
+     public ItemDto(String id, String desc, String pack, double UnitPrice, int QoH) 
+        this.id = id;
+        this.desc = desc;
+        this.pack = pack;
+        this.UnitPrice = unitPrice;
+        this.QoH = QoH;
+    }
 
     public String getId() {
         return id;
@@ -56,6 +64,10 @@ public class ItemDto {
 
     public void setQoH(int QoH) {
         this.QoH = QoH;
+    }
+    @Override
+    public String toString() {
+        return "ItemDto{" + "id=" + id + ", desc=" + desc + ", pack=" + pack + ", unitPrice=" + unitPrice + ", qoh=" + qoh + '}';
     }
     
     
