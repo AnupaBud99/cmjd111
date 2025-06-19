@@ -4,13 +4,17 @@
  */
 package edu.ijse.mvc.view;
 
+import com.mysql.cj.protocol.x.MessageConstants;
+import edu.ijse.mvc.controller.ItemController;
 import edu.ijse.mvc.dto.ItemDto;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ASUS
  */
 public class ItemForm extends javax.swing.JFrame {
+    private ItemController itemController = new ItemController();
 
     /**
      * Creates new form ItemForm
@@ -291,6 +295,12 @@ public class ItemForm extends javax.swing.JFrame {
                 txtPack.getText(),
                 Double.parseDouble(txtUnite.getText()),
                 Integer.parseInt(txtQoH.getText()));
-        System.out.println(itemDto); 
+        System.out.println(itemDto);
+        try {
+            String resp = itemController.saveItem(itemDto);
+            JOptionPane.showMessageDialog(this,resp);
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(this,e.getMessage());
+        }
     }
 }
