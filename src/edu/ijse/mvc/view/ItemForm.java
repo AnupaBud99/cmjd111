@@ -4,6 +4,8 @@
  */
 package edu.ijse.mvc.view;
 
+import edu.ijse.mvc.dto.ItemDto;
+
 /**
  *
  * @author ASUS
@@ -251,7 +253,7 @@ public class ItemForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
+        saveItem();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
@@ -281,4 +283,14 @@ public class ItemForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtQoH;
     private javax.swing.JTextField txtUnite;
     // End of variables declaration//GEN-END:variables
+
+    private void saveItem() {
+        ItemDto itemDto = new ItemDto(
+                txtCode.getText(),
+                txtDesc.getText(),
+                txtPack.getText(),
+                Double.parseDouble(txtUnite.getText()),
+                Integer.parseInt(txtQoH.getText()));
+        System.out.println(itemDto); 
+    }
 }

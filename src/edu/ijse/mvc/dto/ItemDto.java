@@ -9,66 +9,98 @@ package edu.ijse.mvc.dto;
  * @author ASUS
  */
 public class ItemDto {
-    private String id;
+    private String code;
     private String desc;
     private String pack;
-    private double UnitPrice;
-    private int QoH;
-    
-    
-    public ItemDto()  {
+    private double unitPrice;
+    private int qoh;
+
+    public ItemDto() {
     }
-     public ItemDto(String id, String desc, String pack, double UnitPrice, int QoH) 
-        this.id = id;
+
+    public ItemDto(String code, String desc, String pack, double unitPrice, int qoh) {
+        this.code = code;
         this.desc = desc;
         this.pack = pack;
-        this.UnitPrice = unitPrice;
-        this.QoH = QoH;
+        this.unitPrice = unitPrice;
+        this.qoh = qoh;
     }
 
-    public String getId() {
-        return id;
+    /**
+     * @return the code
+     */
+    public String getCode() {
+        return code;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * @param code the code to set
+     */
+    public void setCode(String code) {
+        this.code = code;
     }
 
+    /**
+     * @return the desc
+     */
     public String getDesc() {
         return desc;
     }
 
+    /**
+     * @param desc the desc to set
+     */
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
+    /**
+     * @return the pack
+     */
     public String getPack() {
         return pack;
     }
 
+    /**
+     * @param pack the pack to set
+     */
     public void setPack(String pack) {
         this.pack = pack;
     }
 
+    /**
+     * @return the unitPrice
+     */
     public double getUnitPrice() {
-        return UnitPrice;
+        return unitPrice;
     }
 
-    public void setUnitPrice(double UnitPrice) {
-        this.UnitPrice = UnitPrice;
+    /**
+     * @param unitPrice the unitPrice to set
+     */
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
-    public int getQoH() {
-        return QoH;
+    /**
+     * @return the qoh
+     */
+    public int getQoh() {
+        return qoh;
     }
 
-    public void setQoH(int QoH) {
-        this.QoH = QoH;
+    /**
+     * @param qoh the qoh to set
+     */
+    public void setQoh(int qoh) {
+        this.qoh = qoh;
     }
+
     @Override
     public String toString() {
-        return "ItemDto{" + "id=" + id + ", desc=" + desc + ", pack=" + pack + ", unitPrice=" + unitPrice + ", qoh=" + qoh + '}';
+        return "ItemDto{" + "code=" + code + ", desc=" + desc + ", pack=" + pack + ", unitPrice=" + unitPrice + ", qoh=" + qoh + '}';
     }
     
     
+   
 }
