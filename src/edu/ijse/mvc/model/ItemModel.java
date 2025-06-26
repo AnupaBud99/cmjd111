@@ -21,11 +21,11 @@ public class ItemModel {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "INSERT INTO Item VALUES (?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, itemDto.getId());
+        statement.setString(1, itemDto.getCode());
         statement.setString(2, itemDto.getDesc());
         statement.setString(3, itemDto.getPack());
         statement.setDouble(4, itemDto.getUnitPrice());
-        statement.setInt(5, itemDto.getQoH());
+        statement.setInt(5, itemDto.getQoh());
         
         return statement.executeUpdate() > 0 ? "Success" : "Fail";
     }
@@ -34,13 +34,13 @@ public class ItemModel {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "UPDATE Item SET Description =?, PackSize = ?, UnitPrice=?, QtyOnHand = ? WHERE ItemCode = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, itemDto.getCode());
+        statement.setString(2, itemDto.getDesc());
+        statement.setString(3, itemDto.getPack());
+        statement.setDouble(4, itemDto.getUnitPrice());
+        statement.setInt(5, itemDto.getQoh());
         
-        statement.setString(1, itemDto.getDesc());
-        statement.setString(2, itemDto.getPack());
-        statement.setDouble(3, itemDto.getUnitPrice());
-        statement.setInt(4, itemDto.getQoH());
-        
-        statement.setString(5, itemDto.getId());
+       
         
         return statement.executeUpdate() > 0 ? "Success" : "Fail";
     }
