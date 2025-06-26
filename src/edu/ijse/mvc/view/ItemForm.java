@@ -7,7 +7,9 @@ package edu.ijse.mvc.view;
 import com.mysql.cj.protocol.x.MessageConstants;
 import edu.ijse.mvc.controller.ItemController;
 import edu.ijse.mvc.dto.ItemDto;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +23,7 @@ public class ItemForm extends javax.swing.JFrame {
      */
     public ItemForm() {
         initComponents();
+        loadTable();
     }
 
     /**
@@ -299,8 +302,33 @@ public class ItemForm extends javax.swing.JFrame {
         try {
             String resp = itemController.saveItem(itemDto);
             JOptionPane.showMessageDialog(this,resp);
+            loadTable();
         } catch (Exception e) {
              JOptionPane.showMessageDialog(this,e.getMessage());
         }
+    }
+
+  
+    private void loadTable() {
+       String [] columens = {"Item Code", " Description", "Pack Size", "Unit Price", "Qty On Hand"};
+        DefaultTableModel dtm = new DefaultTableModel(columens, 0){
+          
+           public boolean isCellEditable(int row, int column) {
+               return false;
+           }
+            
+    };
+        tblItem.setModel(dtm);
+        
+        try {
+            ArrayList<ItemDto> itemDtos = itemController.getAllItem();
+            for (ItemDto itemDto : itemDtos) {
+                Object[] rowData = {itemDto.getCode(), itemDto.getDesc(), itemDto.getPack(), itemDto.getUnitPrice(), itemDto.getQoh()};
+                dtm.addRow(rowData);
+            }
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        } 
     }
 }

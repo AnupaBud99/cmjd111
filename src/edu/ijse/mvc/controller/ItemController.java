@@ -26,8 +26,10 @@ public class ItemController {
       public ItemDto getItem(String itemCode)throws Exception{
          return itemModel.getItem(itemCode);
      }
-       public ArrayList<ItemDto> getAll ()throws Exception{
-         return itemModel.getAll();
+
+    
+    public ArrayList<ItemDto> getAllItem()throws Exception{
+         return itemModel.getAllItem();
      }
 }
 
