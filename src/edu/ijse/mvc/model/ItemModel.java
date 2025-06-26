@@ -34,31 +34,32 @@ public class ItemModel {
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "UPDATE Item SET Description =?, PackSize = ?, UnitPrice=?, QtyOnHand = ? WHERE ItemCode = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, itemDto.getCode());
-        statement.setString(2, itemDto.getDesc());
-        statement.setString(3, itemDto.getPack());
-        statement.setDouble(4, itemDto.getUnitPrice());
-        statement.setInt(5, itemDto.getQoh());
+        
+        statement.setString(1, itemDto.getDesc());
+        statement.setString(2, itemDto.getPack());
+        statement.setDouble(3, itemDto.getUnitPrice());
+        statement.setInt(4, itemDto.getQoh());
+        statement.setString(5, itemDto.getCode());
         
        
         
         return statement.executeUpdate() > 0 ? "Success" : "Fail";
     }
     
-    public String deleteItem(String code) throws Exception{
+    public String deleteItem(String itemcode) throws Exception{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "DELETE FROM Item WHERE ItemCode = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, code);
+        statement.setString(1, itemcode);
         
         return statement.executeUpdate() > 0 ? "Success" : "Fail";
     }
     
-    public ItemDto searchItem(String code) throws Exception{
+    public ItemDto getItem(String itemcode) throws Exception{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "SELECT * FROM Item WHERE ItemCode = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, code);
+        statement.setString(1, itemcode);
         
         ResultSet rst = statement.executeQuery();
         
